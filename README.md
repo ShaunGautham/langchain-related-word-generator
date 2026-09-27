@@ -1,6 +1,6 @@
 # LangChain Related Word Generator
 
-A simple AI-powered word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
+A simple AI-powered related word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
 
 The application takes a word, topic, or concept as input and generates one related word along with its meaning and an example sentence.
 
