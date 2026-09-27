@@ -1,4 +1,4 @@
-# LangChain Random Word Generator
+# LangChain Related Word Generator
 
 A simple AI-powered word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
 
@@ -73,7 +73,7 @@ Clone the repository:
 
 ```bash
 git clone <your-repository-url>
-cd langchain-random-word-generator
+cd langchain-related-word-generator
 ```
 
 Install the Python dependencies:
@@ -99,7 +99,7 @@ python main.py
 You will see:
 
 ```text
-=== LangChain Random Word Generator ===
+=== LangChain Related Word Generator ===
 Using local Qwen 2.5 Coder 7B
 Type 'exit' to quit.
 
@@ -129,7 +129,7 @@ Type `exit` to stop the application.
 ## Project Structure
 
 ```text
-langchain-random-word-generator/
+langchain-related-word-generator/
 │
 ├── main.py
 ├── requirements.txt
