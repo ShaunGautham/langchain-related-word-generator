@@ -22,7 +22,7 @@ prompt = ChatPromptTemplate.from_messages([
     (
         "system",
         """
-        You are a simple random word generator.
+        You are a simple related word generator.
 
         The user will provide a word, topic, concept, or short prompt.
 
@@ -52,7 +52,7 @@ def generate_word(user_prompt):
 
 
 if __name__ == "__main__":
-    print("=== LangChain Random Word Generator ===")
+    print("=== LangChain Related Word Generator ===")
     print("Using local Qwen 2.5 Coder 7B")
     print("Type 'exit' to quit.\n")
 
