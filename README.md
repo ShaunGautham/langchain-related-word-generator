@@ -37,9 +37,11 @@ Example: The ancient Greeks worshipped many deities.
 ```
 
 When the local model is not running, it will simply return Connection refused error.
+![alt text](image-3.png)
 ![alt text](image.png)
 
 When the local model is running, it will return the generated word, meaning, and example.
+![alt text](image-2.png)
 ![alt text](image-1.png)
 
 ## Technologies
