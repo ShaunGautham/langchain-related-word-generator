@@ -81,6 +81,7 @@ Clone the repository:
 
 ```bash
 git clone git@github.com:ShaunGautham/langchain-semantic-word-generator.git
+
 cd langchain-semantic-word-generator
 ```
 
@@ -107,61 +108,52 @@ uvicorn main:app --reload
 The application should start at:
 
 `http://127.0.0.1:8000`
-Open the URL in your browser.
-
-Type `exit` to stop the application.
 
 ## API Documentation
 
 FastAPI automatically provides interactive API documentation using Swagger UI.
 
 Open:
-
-http://127.0.0.1:8000/docs
+`http://127.0.0.1:8000/docs`
 
 Generate Endpoint
 `POST /generate`
+
 Request
-`{
+```bash
+{
   "prompt": "Kubernetes"
-}`
+}
+```
 
 Response
-`{
+```bash
+{
   "word": "Orchestration",
   "meaning": "The automated management and coordination of containers or services.",
   "example": "Kubernetes provides container orchestration."
-}`
+}
+```
 
 ## Architecture
 
-┌─────────────────────┐
-│     Web Browser     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│       FastAPI       │
-│     Web Server      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│      LangChain      │
-│    Prompt + Chain   │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│       Ollama        │
-│   Local LLM Runtime │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│  Qwen 2.5 Coder 7B  │
-│     Local Model     │
-└─────────────────────┘
+```text
+  Web Browser
+     │
+     ▼
+FastAPI Webserver
+     │
+     ▼
+ LangChain
+     │
+     ▼
+   Ollama
+Local LLM Runtime
+     │
+     ▼
+Qwen 2.5 Coder 7B
+  Local Model 
+```
 
 ## Project Structure
 
