@@ -1,6 +1,6 @@
-# LangChain Related Word Generator
+# LangChain Semantic Word Generator
 
-A simple AI-powered related word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
+A simple AI-powered semantic word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
 
 The application takes a word, topic, or concept as input and generates one related word along with its meaning and an example sentence.
 
@@ -73,7 +73,7 @@ Clone the repository:
 
 ```bash
 git clone <your-repository-url>
-cd langchain-related-word-generator
+cd langchain-semantic-word-generator
 ```
 
 Install the Python dependencies:
@@ -99,7 +99,7 @@ python main.py
 You will see:
 
 ```text
-=== LangChain Related Word Generator ===
+=== LangChain Semantic Word Generator ===
 Using local Qwen 2.5 Coder 7B
 Type 'exit' to quit.
 
@@ -129,7 +129,7 @@ Type `exit` to stop the application.
 ## Project Structure
 
 ```text
-langchain-related-word-generator/
+langchain-semantic-word-generator/
 │
 ├── main.py
 ├── requirements.txt
