@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Semantic Word Generator</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="hero">
+
+            <p class="eyebrow">LANGCHAIN × OLLAMA × QWEN</p>
+
+            <h1>Semantic Word Generator</h1>
+
+            <p class="subtitle">
+                Enter a word, topic, or concept and discover a
+                semantically related word.
+            </p>
+
+        </section>
+
+
+        <section class="generator">
+
+            <label for="prompt">
+                Enter a topic
+            </label>
+
+            <div class="input-group">
+
+                <input
+                    id="prompt"
+                    type="text"
+                    placeholder="e.g. Kubernetes"
+                    autocomplete="off"
+                >
+
+                <button id="generateButton">
+                    Generate
+                </button>
+
+            </div>
+
+            <p id="error" class="error"></p>
+
+        </section>
+
+
+        <section id="result" class="result hidden">
+
+            <div class="result-label">
+                RELATED WORD
+            </div>
+
+            <h2 id="word"></h2>
+
+            <div class="result-section">
+
+                <h3>Meaning</h3>
+
+                <p id="meaning"></p>
+
+            </div>
+
+            <div class="result-section">
+
+                <h3>Example</h3>
+
+                <p id="example"></p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Built with Python, LangChain, FastAPI,
+                Ollama and Qwen 2.5 Coder 7B.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

@@ -1,22 +1,30 @@
 # LangChain Semantic Word Generator
 
-A simple AI-powered semantic word generator built with **Python, LangChain, Ollama, and Qwen 2.5 Coder 7B**.
+# Semantic Word Generator
 
-The application takes a word, topic, or concept as input and generates one related word along with its meaning and an example sentence.
+An AI-powered web application that uses **LangChain, FastAPI, Ollama, and Qwen 2.5 Coder 7B** to generate a semantically related word from a user-provided topic or concept.
+
+The application returns the related word along with a simple meaning and example sentence.
+
+---
 
 ## How It Works
 
 ```text
-User Input
-    ↓
+User
+  ↓
+Web UI
+  ↓
+FastAPI
+  ↓
 LangChain
-    ↓
+  ↓
 Ollama
-    ↓
+  ↓
 Qwen 2.5 Coder 7B
-    ↓
+  ↓
 Structured Output
-    ↓
+  ↓
 Word + Meaning + Example
 ```
 
@@ -25,33 +33,39 @@ Word + Meaning + Example
 Input:
 
 ```text
-god
+Kubernetes
 ```
 
 Output:
 
 ```text
-Word: Deity
-Meaning: A supernatural being, especially a god.
-Example: The ancient Greeks worshipped many deities.
+Word: Orchestration
+Meaning: The automated management and coordination of containers or services.
+Example: Kubernetes provides container orchestration.
 ```
 
 When the local model is not running, it will simply return Connection refused error.
 ![alt text](image-3.png)
 ![alt text](image-4.png)
+![alt text](image-5.png)
 
 When the local model is running, it will return the generated word, meaning, and example.
 ![alt text](image-2.png)
 ![alt text](image-1.png)
+![alt text](image-6.png)
 
 ## Technologies
 
-* Python
-* LangChain
-* LangChain Ollama
-* Ollama
-* Qwen 2.5 Coder 7B
-* Pydantic
+Python
+FastAPI
+LangChain
+LangChain Ollama
+Ollama
+Qwen 2.5 Coder 7B
+Pydantic
+HTML
+CSS
+JavaScript
 
 ## Prerequisites
 
@@ -61,18 +75,12 @@ Make sure the following are installed:
 * Ollama
 * Qwen 2.5 Coder 7B
 
-Pull the model with:
-
-```bash
-ollama pull qwen2.5-coder:7b
-```
-
 ## Installation
 
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone git@github.com:ShaunGautham/langchain-semantic-word-generator.git
 cd langchain-semantic-word-generator
 ```
 
@@ -90,41 +98,70 @@ Make sure Ollama is running and the model is available:
 ollama list
 ```
 
-Then run:
+Start the FastAPI application:
 
 ```bash
-python main.py
+uvicorn main:app --reload
 ```
 
-You will see:
+The application should start at:
 
-```text
-=== LangChain Semantic Word Generator ===
-Using local Qwen 2.5 Coder 7B
-Type 'exit' to quit.
-
-Enter your prompt:
-```
-
-Enter a word or topic such as:
-
-```text
-Kubernetes
-```
-
-or:
-
-```text
-cloud
-```
-
-or:
-
-```text
-god
-```
+`http://127.0.0.1:8000`
+Open the URL in your browser.
 
 Type `exit` to stop the application.
+
+## API Documentation
+
+FastAPI automatically provides interactive API documentation using Swagger UI.
+
+Open:
+
+http://127.0.0.1:8000/docs
+
+Generate Endpoint
+`POST /generate`
+Request
+`{
+  "prompt": "Kubernetes"
+}`
+
+Response
+`{
+  "word": "Orchestration",
+  "meaning": "The automated management and coordination of containers or services.",
+  "example": "Kubernetes provides container orchestration."
+}`
+
+## Architecture
+
+┌─────────────────────┐
+│     Web Browser     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│       FastAPI       │
+│     Web Server      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│      LangChain      │
+│    Prompt + Chain   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│       Ollama        │
+│   Local LLM Runtime │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│  Qwen 2.5 Coder 7B  │
+│     Local Model     │
+└─────────────────────┘
 
 ## Project Structure
 
@@ -132,24 +169,47 @@ Type `exit` to stop the application.
 langchain-semantic-word-generator/
 │
 ├── main.py
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   ├── style.css
+│   └── script.js
+│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
 
-## Future Improvements
+Backend:
 
-Possible future improvements include:
+`main.py` contains:
 
-* FastAPI backend
-* Web-based UI
-* Docker containerization
-* GitHub Actions CI/CD
-* Cloud deployment
-* Additional LLM providers
-* Conversation history
-* Improved structured responses
+* FastAPI application
+* LangChain configuration
+* Ollama and Qwen integration
+* Pydantic response models
+* `/generate` API endpoint
+* Web page routing
+
+Frontend
+
+* `templates/index.html` contains the web page structure.
+* `static/style.css` contains the UI styling.
+* `static/script.js` sends requests to the FastAPI backend and displays the generated result.
+
+## Features
+* Generate a semantically related word
+* Generate a simple word meaning
+* Generate an example sentence
+* Local LLM inference
+* Structured AI output using Pydantic
+* FastAPI REST API
+* Simple web interface
+* Interactive API documentation with Swagger UI
+
 
 ## Purpose
 
-This project was created as a hands-on learning project to understand how **LangChain, local LLMs, Ollama, and structured AI responses** work together.
+This project was created as a hands-on learning project to understand how **LangChain, local LLMs, Ollama, structured AI responses. FastAPI, REST APIs, AI-assisted development** work together.
