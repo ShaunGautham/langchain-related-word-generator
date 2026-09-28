@@ -134,6 +134,7 @@ Response
   "example": "Kubernetes provides container orchestration."
 }
 ```
+![alt text](image-7.png)
 
 ## Architecture
 
